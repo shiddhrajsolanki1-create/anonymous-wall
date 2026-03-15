@@ -1,0 +1,40 @@
+<h1>Anonymous Wall</h1>
+
+<h3>Welcome {{user[0]}}</h3>
+<p>Your anonymous ID: <b>{{user[1]}}</b></p>
+
+<a href="/logout">Logout</a>
+
+<hr>
+
+<form method="POST">
+
+<textarea name="message" placeholder="Write message"></textarea>
+
+<br><br>
+
+<button>Post</button>
+
+</form>
+
+<hr>
+
+<h3>Wall Messages</h3>
+
+{% for msg in messages %}
+
+<div style="border:1px solid gray; padding:10px; margin:10px">
+
+<b>{{msg[2]}}</b> :
+
+{{msg[1]}}
+
+<br><br>
+
+<a href="/like/{{msg[0]}}">👍 {{msg[3]}}</a>
+
+<a href="/dislike/{{msg[0]}}">👎 {{msg[4]}}</a>
+
+</div>
+
+{% endfor %}
